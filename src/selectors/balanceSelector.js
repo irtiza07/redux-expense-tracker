@@ -5,3 +5,10 @@ export const getTotalBalance = (state) => {
   return state.balance.totalBalance
 }
 
+export const getTotalExpense = (state) => {
+  return state.balance.totalExpense
+}
+
+export const getTotalIncome = (state) => {
+  return state.balance.totalIncome
+}

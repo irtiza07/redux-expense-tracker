@@ -1,0 +1,25 @@
+.Summary {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.SummaryItemIncome {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid green;
+  border-radius: 10px;
+  width: 15%;
+  color: green;
+  margin-right: 10px;
+}
+
+.SummaryItemExpense {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid red;
+  border-radius: 10px;
+  width: 15%;
+  color: red;
+}

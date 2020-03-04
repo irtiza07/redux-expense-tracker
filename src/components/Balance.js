@@ -3,9 +3,9 @@ import './Balance.css';
 
 export default function Balance( { balance } ) {
   return (
-    <React.Fragment>
+    <div className="Balance">
       <h2> Your Balance </h2>
-      <h3>${balance.toString()}</h3>
-    </React.Fragment>
+      <p>${balance.toLocaleString()}.00</p>
+    </div>
   )
 }
