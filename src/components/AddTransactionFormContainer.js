@@ -1,11 +1,18 @@
-import React from 'react'
+import { connect } from "react-redux";
+import AddTransactionForm from "./AddTransactionForm";
+import { addTransactionAction } from "../actions/balanceActions";
 
-function AddTransactionFormContainer() {
-  return (
-    <div>
-      
-    </div>
-  )
+const mapStateToProps = state => {
+  return {}
 }
 
-export default AddTransactionFormContainer
+const mapDispatchToProps = dispatch => {
+  return {
+    addTransaction : transaction => dispatch(addTransactionAction(transaction)),
+  }
+}
+
+export const AddTransactionFormContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddTransactionForm) 

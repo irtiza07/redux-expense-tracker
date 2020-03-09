@@ -2,14 +2,17 @@ import React from 'react';
 import './App.css';
 import { BalanceContainer } from './components/BalanceContainer';
 import { SummaryContainer } from './components/SummaryContainer';
-import AddTransactionForm from './components/AddTransactionForm';
+import { AddTransactionFormContainer } from './components/AddTransactionFormContainer';
+import { HistoryContainer} from './components/HistoryContainer';
+
 
 function App() {
   return (
     <div className="App">
       <BalanceContainer></BalanceContainer>
       <SummaryContainer></SummaryContainer>
-      <AddTransactionForm></AddTransactionForm>
+      <AddTransactionFormContainer></AddTransactionFormContainer>
+      <HistoryContainer></HistoryContainer>
     </div>
   );
 }

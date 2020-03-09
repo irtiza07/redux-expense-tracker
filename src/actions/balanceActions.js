@@ -1,26 +1,10 @@
 export const BALANCE_ACTIONS = {
-  UPDATE_BALANCE: 'update_balance',
-  ADD_EXPENSE: 'add_expense',
-  ADD_INCOME: 'add_income'
+  ADD_TRANSACTION: 'add_transaction',
 }
 
-export const updateBalanceAction = (updatedBalance) => {
+export const addTransactionAction = (newTransaction) => {
   return {
-    type: BALANCE_ACTIONS.UPDATE_BALANCE,
-    payload: updatedBalance
-  }
-}
-
-export const addExpenseAction = (newExpense) => {
-  return {
-    type: BALANCE_ACTIONS.ADD_EXPENSE,
-    payload: newExpense
-  }
-}
-
-export const addIncomeAction = (newIncome) => {
-  return {
-    type: BALANCE_ACTIONS.ADD_INCOME,
-    payload: newIncome
+    type: BALANCE_ACTIONS.ADD_TRANSACTION,
+    payload: newTransaction
   }
 }

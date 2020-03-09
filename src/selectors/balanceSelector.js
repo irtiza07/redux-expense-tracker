@@ -2,7 +2,7 @@
 //import { createSelector } from 'reselect'
 
 export const getTotalBalance = (state) => {
-  return state.balance.totalBalance
+  return state.balance.totalIncome - state.balance.totalExpense 
 }
 
 export const getTotalExpense = (state) => {
@@ -11,4 +11,8 @@ export const getTotalExpense = (state) => {
 
 export const getTotalIncome = (state) => {
   return state.balance.totalIncome
+}
+
+export const getTransactions = (state) => {
+  return state.balance.transactions
 }

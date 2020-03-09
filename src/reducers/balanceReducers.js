@@ -1,29 +1,9 @@
 import { BALANCE_ACTIONS } from '../actions/balanceActions'
 
 const initialState = {
-  expenses : [
-    {
-      'name': 'milk',
-      'amount': 20
-    },
-    {
-      'name': 'boba',
-      'amount': 10
-    }
-  ],
-  incomes : [
-    {
-      'name': 'blog',
-      'amount': 500
-    },
-    {
-      'name': 'work',
-      'amount': 3000
-    }
-  ],
-  totalExpense: 30,
-  totalIncome: 3500,
-  totalBalance : 100
+  transactions : [],
+  totalExpense: 0,
+  totalIncome: 0,
 }
 /**
  * Things never to do in a reducer:
@@ -34,22 +14,21 @@ const initialState = {
  */
 export const balance = (state = initialState, action) => {
   switch (action.type) {
-    case BALANCE_ACTIONS.UPDATE_BALANCE:
-      return {
-        result: action.payload //Do something with the payload
+    case BALANCE_ACTIONS.ADD_TRANSACTION:
+      const newTransactions = state.transactions.slice();
+      newTransactions.unshift(action.payload)
+      
+      if (action.payload.type === 'income') {
+        return Object.assign({}, state, {
+          transactions: newTransactions,
+          totalIncome: state.totalIncome + Number(action.payload.amount),
+        })
+      } else {
+        return Object.assign({}, state, {
+          transactions: newTransactions,
+          totalExpense: state.totalExpense + Number(action.payload.amount),
+        })
       }
-    case BALANCE_ACTIONS.ADD_EXPENSE:
-      const newExpenses = state.expenses.slice();
-      return Object.assign({}, state, {
-        expenses: newExpenses.unshift(action.payload),
-        totalExpense: state.totalExpense + action.payload.amount
-      })
-    case BALANCE_ACTIONS.ADD_INCOME:
-      const newIncomes = state.expenses.slice();
-      return Object.assign({}, state, {
-        incomes: newIncomes.unshift(action.payload),
-        totalIncome: state.totalIncome + action.payload.amount
-      })
     default:
       return state
   }
